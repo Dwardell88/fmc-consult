@@ -467,7 +467,7 @@
         </div>
 
         <div class="field">
-          <label>Are you trying to increase? (select all that apply)</label>
+          <label>What are you trying to increase (select all that apply)</label>
           <div class="check-group" id="increaseGroup">
             <label class="check-item" data-value="Leads"><input type="checkbox" /><div class="check-box">✓</div> Leads</label>
             <label class="check-item" data-value="Sales"><input type="checkbox" /><div class="check-box">✓</div> Sales</label>
@@ -571,7 +571,7 @@
         </div>
 
         <div class="field">
-          <label>Do you have access to? (select all that apply)</label>
+          <label>Do you have access to (select all that apply)</label>
           <div class="check-group" id="accessGroup">
             <label class="check-item" data-value="Website admin"><input type="checkbox" /><div class="check-box">✓</div> Website Admin</label>
             <label class="check-item" data-value="Domain registrar"><input type="checkbox" /><div class="check-box">✓</div> Domain Registrar</label>
@@ -808,7 +808,8 @@
 
   // Checkboxes
   document.querySelectorAll('.check-item').forEach(item => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
       item.classList.toggle('selected');
       item.querySelector('input').checked = item.classList.contains('selected');
     });
