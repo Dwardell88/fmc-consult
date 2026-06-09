@@ -13,7 +13,6 @@
       --gold-light: #e2c270;
       --dark: #12100e;
       --dark-2: #1a1612;
-      --dark-3: #222018;
       --text: #ede8df;
       --text-muted: #8a8070;
       --border: #2e2a22;
@@ -45,15 +44,12 @@
       margin: 0 auto;
       padding: 0 24px 80px;
     }
-
-    /* Header */
     .header {
       text-align: center;
       padding: 48px 0 36px;
       border-bottom: 1px solid var(--border);
       margin-bottom: 40px;
     }
-    .crown { font-size: 28px; margin-bottom: 10px; display: block; }
     .brand-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 12px;
@@ -86,11 +82,7 @@
       font-weight: 300;
       line-height: 1.8;
     }
-
-    /* Progress */
-    .progress-wrap {
-      margin-bottom: 36px;
-    }
+    .progress-wrap { margin-bottom: 36px; }
     .progress-info {
       display: flex;
       justify-content: space-between;
@@ -103,28 +95,12 @@
       text-transform: uppercase;
       color: var(--gold);
     }
-    .progress-count {
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-    }
-    .progress-bar {
-      height: 2px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: var(--gold);
-      border-radius: 2px;
-      transition: width 0.4s ease;
-    }
+    .progress-count { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; }
+    .progress-bar { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.4s ease; }
 
-    /* Steps */
     .step { display: none; }
     .step.active { display: block; }
-
     .step-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 26px;
@@ -139,7 +115,6 @@
       margin-bottom: 28px;
       line-height: 1.7;
     }
-
     .section-label {
       font-size: 11px;
       letter-spacing: 3px;
@@ -150,10 +125,52 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* Fields */
+    /* Packages */
+    .packages { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 8px; }
+    .pkg {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 18px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .pkg:hover { border-color: var(--gold); }
+    .pkg.selected { border-color: var(--gold); background: #1e1a0e; }
+    .pkg.selected::after {
+      content: '✦';
+      position: absolute;
+      top: 10px; right: 12px;
+      color: var(--gold);
+      font-size: 11px;
+    }
+    .pkg-tier {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .pkg-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .pkg-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .pkg-price span { font-size: 13px; font-weight: 300; color: var(--text-muted); font-family: 'Jost', sans-serif; }
+    .pkg-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+
     .field { margin-bottom: 20px; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .field-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 
     label {
       display: block;
@@ -169,8 +186,6 @@
     input[type="text"],
     input[type="email"],
     input[type="tel"],
-    input[type="url"],
-    input[type="number"],
     textarea,
     select {
       width: 100%;
@@ -198,22 +213,17 @@
     }
     select option { background: var(--dark-2); }
 
-    /* Radio */
     .radio-group { display: flex; flex-direction: column; gap: 8px; }
     .radio-group.inline { flex-direction: row; flex-wrap: wrap; gap: 8px; }
     .radio-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: flex; align-items: center; gap: 10px;
       padding: 10px 14px;
       background: var(--input-bg);
       border: 1px solid var(--border);
       border-radius: 3px;
       cursor: pointer;
       transition: border-color 0.2s, background 0.2s;
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--text);
+      font-size: 13px; font-weight: 300; color: var(--text);
       user-select: none;
     }
     .radio-group.inline .radio-item { flex: 1; min-width: 120px; }
@@ -229,12 +239,8 @@
       transition: border-color 0.2s, background 0.2s;
     }
     .radio-item.selected .radio-dot { border-color: var(--gold); background: var(--gold); }
-    .radio-item.selected .radio-dot::after {
-      content: ''; width: 5px; height: 5px;
-      border-radius: 50%; background: var(--dark);
-    }
+    .radio-item.selected .radio-dot::after { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--dark); }
 
-    /* Checkbox */
     .check-group { display: flex; flex-wrap: wrap; gap: 8px; }
     .check-item {
       display: flex; align-items: center; gap: 8px;
@@ -249,7 +255,6 @@
     }
     .check-item:hover { border-color: var(--gold); }
     .check-item.selected { border-color: var(--gold); background: #1e1a0e; color: var(--gold-light); }
-    .check-item input { display: none; }
     .check-box {
       width: 14px; height: 14px;
       border-radius: 2px;
@@ -258,14 +263,15 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 10px;
       transition: border-color 0.2s, background 0.2s;
+      pointer-events: none;
     }
     .check-item.selected .check-box { border-color: var(--gold); background: var(--gold); color: var(--dark); }
 
-    /* Error */
     .err-msg { font-size: 12px; color: var(--error); margin-top: 5px; display: none; }
     .field.has-error .err-msg { display: block; }
+    .pkg-error { font-size: 12px; color: var(--error); margin-top: 8px; display: none; }
+    .pkg-error.visible { display: block; }
 
-    /* File note */
     .file-note {
       background: var(--dark-2);
       border: 1px solid var(--border);
@@ -274,15 +280,9 @@
       padding: 16px 18px;
       margin-bottom: 20px;
     }
-    .file-note p {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.7;
-    }
+    .file-note p { font-size: 13px; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
     .file-note strong { color: var(--gold); font-weight: 500; }
 
-    /* Navigation */
     .nav-wrap {
       display: flex;
       justify-content: space-between;
@@ -293,12 +293,9 @@
     }
     .btn-back {
       font-family: 'Jost', sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      background: transparent;
-      color: var(--text-muted);
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 2px; text-transform: uppercase;
+      background: transparent; color: var(--text-muted);
       border: 1px solid var(--border);
       border-radius: 3px;
       padding: 13px 28px;
@@ -308,14 +305,10 @@
     .btn-back:hover { border-color: var(--gold); color: var(--gold); }
     .btn-next {
       font-family: 'Jost', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      background: var(--gold);
-      color: var(--dark);
-      border: none;
-      border-radius: 3px;
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      background: var(--gold); color: var(--dark);
+      border: none; border-radius: 3px;
       padding: 13px 36px;
       cursor: pointer;
       transition: background 0.2s, transform 0.15s;
@@ -325,7 +318,6 @@
     .btn-next:active { transform: translateY(0); }
     .btn-next:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-    /* Success */
     .success-screen { display: none; text-align: center; padding: 80px 24px; }
     .success-screen.visible { display: block; }
     .success-icon { font-size: 36px; margin-bottom: 20px; display: block; }
@@ -341,15 +333,12 @@
     }
     .success-email {
       display: inline-block;
-      color: var(--gold);
-      font-size: 13px;
+      color: var(--gold); font-size: 13px;
       border: 1px solid var(--border);
       border-radius: 3px;
-      padding: 10px 20px;
-      margin-top: 8px;
+      padding: 10px 20px; margin-top: 8px;
     }
 
-    /* Footer */
     .footer {
       text-align: center;
       padding: 28px 0 0;
@@ -360,7 +349,8 @@
     .footer p { font-size: 12px; color: var(--text-muted); margin-top: 6px; font-weight: 300; }
 
     @media (max-width: 560px) {
-      .field-row, .field-row-3 { grid-template-columns: 1fr; }
+      .packages { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
       .header h1 { font-size: 26px; }
       .step-title { font-size: 22px; }
     }
@@ -370,7 +360,6 @@
 <div class="wrap">
 
   <div class="header">
-    
     <div class="brand-name">Favored Marketing Consultants</div>
     <div class="brand-sub">Client Intake Form</div>
     <h1>Let's get your brand <em>favored.</em></h1>
@@ -388,18 +377,41 @@
   <div id="formWrap">
     <div class="progress-wrap">
       <div class="progress-info">
-        <span class="progress-label" id="stepLabel">Business Information</span>
-        <span class="progress-count" id="stepCount">Step 1 of 10</span>
+        <span class="progress-label" id="stepLabel">Choose Your Package</span>
+        <span class="progress-count" id="stepCount">Step 1 of 5</span>
       </div>
       <div class="progress-bar">
-        <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+        <div class="progress-fill" id="progressFill" style="width:20%"></div>
       </div>
     </div>
 
     <form id="intakeForm" novalidate>
 
-      <!-- STEP 1: Business Information -->
-      <div class="step active" data-step="1" data-label="Business Information">
+      <!-- STEP 1: Package Selection -->
+      <div class="step active" data-step="1" data-label="Choose Your Package">
+        <div class="step-title">Choose your package.</div>
+        <div class="step-desc">Select the option that best fits where you are and what you need right now.</div>
+
+        <div class="packages" id="packageSelector">
+          <div class="pkg" data-value="Tier 1: Marketing Strategy Session - $297 One-Time">
+            <div class="pkg-tier">Tier 1</div>
+            <div class="pkg-name">Marketing Strategy Session</div>
+            <div class="pkg-price">$297 <span>one-time</span></div>
+            <div class="pkg-desc">Perfect for businesses that need direction but aren't ready for ongoing help.</div>
+          </div>
+          <div class="pkg" data-value="Tier 2: Growth Partner - $997/month">
+            <div class="pkg-tier">Tier 2</div>
+            <div class="pkg-name">Growth Partner</div>
+            <div class="pkg-price">$997 <span>/month</span></div>
+            <div class="pkg-desc">Perfect for businesses that need accountability and guidance.</div>
+          </div>
+        </div>
+        <div class="pkg-error" id="pkgError">Please select a package to continue.</div>
+        <input type="hidden" id="packageChoice" />
+      </div>
+
+      <!-- STEP 2: Business Information -->
+      <div class="step" data-step="2" data-label="Business Information">
         <div class="step-title">Tell us about your business.</div>
         <div class="step-desc">We want to understand who you are before we talk about where you're going.</div>
 
@@ -427,20 +439,20 @@
           </div>
         </div>
         <div class="field-row">
-          <div class="field">
-            <label>Website URL</label>
-            <input type="url" id="websiteUrl" placeholder="https://yourbusiness.com" />
-          </div>
           <div class="field" id="field-industry">
             <label>Industry / Niche <span class="req">*</span></label>
             <input type="text" id="industry" placeholder="e.g. Women's fashion, real estate..." />
             <div class="err-msg">Required.</div>
           </div>
-        </div>
-        <div class="field-row">
           <div class="field">
             <label>Years in Business</label>
             <input type="text" id="yearsInBusiness" placeholder="e.g. 2 years, just started..." />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Website URL</label>
+            <input type="text" id="websiteUrl" placeholder="https://yourbusiness.com" />
           </div>
           <div class="field">
             <label>Number of Employees</label>
@@ -449,10 +461,10 @@
         </div>
       </div>
 
-      <!-- STEP 2: Business Goals -->
-      <div class="step" data-step="2" data-label="Business Goals">
-        <div class="step-title">What are you trying to achieve?</div>
-        <div class="step-desc">Be honest. The clearer your goals, the more targeted our strategy can be.</div>
+      <!-- STEP 3: Business Goals & Current Marketing -->
+      <div class="step" data-step="3" data-label="Goals & Current Marketing">
+        <div class="step-title">Where are you and where are you going?</div>
+        <div class="step-desc">Tell us about your goals and what you've already tried.</div>
 
         <div class="field" id="field-primaryGoal">
           <label>What is your primary goal over the next 12 months? <span class="req">*</span></label>
@@ -461,7 +473,7 @@
         </div>
 
         <div class="field" id="field-successLooksLike">
-          <label>What would make this marketing investment a success? <span class="req">*</span></label>
+          <label>What would make this investment a success? <span class="req">*</span></label>
           <textarea id="successLooksLike" placeholder="What does a win look like for you?"></textarea>
           <div class="err-msg">Required.</div>
         </div>
@@ -469,20 +481,14 @@
         <div class="field">
           <label>What are you trying to increase (select all that apply)</label>
           <div class="check-group" id="increaseGroup">
-            <label class="check-item" data-value="Leads"><input type="checkbox" /><div class="check-box">✓</div> Leads</label>
-            <label class="check-item" data-value="Sales"><input type="checkbox" /><div class="check-box">✓</div> Sales</label>
-            <label class="check-item" data-value="Website traffic"><input type="checkbox" /><div class="check-box">✓</div> Website Traffic</label>
-            <label class="check-item" data-value="Brand awareness"><input type="checkbox" /><div class="check-box">✓</div> Brand Awareness</label>
-            <label class="check-item" data-value="Social media engagement"><input type="checkbox" /><div class="check-box">✓</div> Social Engagement</label>
-            <label class="check-item" data-value="Customer retention"><input type="checkbox" /><div class="check-box">✓</div> Customer Retention</label>
+            <div class="check-item" data-value="Leads"><div class="check-box">✓</div> Leads</div>
+            <div class="check-item" data-value="Sales"><div class="check-box">✓</div> Sales</div>
+            <div class="check-item" data-value="Website traffic"><div class="check-box">✓</div> Website Traffic</div>
+            <div class="check-item" data-value="Brand awareness"><div class="check-box">✓</div> Brand Awareness</div>
+            <div class="check-item" data-value="Social media engagement"><div class="check-box">✓</div> Social Engagement</div>
+            <div class="check-item" data-value="Customer retention"><div class="check-box">✓</div> Customer Retention</div>
           </div>
         </div>
-      </div>
-
-      <!-- STEP 3: Current Marketing -->
-      <div class="step" data-step="3" data-label="Current Marketing Efforts">
-        <div class="step-title">What are you doing right now?</div>
-        <div class="step-desc">We want to know what you've already tried before we make recommendations.</div>
 
         <div class="field">
           <label>What marketing are you currently doing?</label>
@@ -490,22 +496,22 @@
         </div>
 
         <div class="field">
-          <label>Which platforms are you active on? (select all that apply)</label>
+          <label>Which platforms are you active on (select all that apply)</label>
           <div class="check-group" id="platformGroup">
-            <label class="check-item" data-value="Facebook"><input type="checkbox" /><div class="check-box">✓</div> Facebook</label>
-            <label class="check-item" data-value="Instagram"><input type="checkbox" /><div class="check-box">✓</div> Instagram</label>
-            <label class="check-item" data-value="LinkedIn"><input type="checkbox" /><div class="check-box">✓</div> LinkedIn</label>
-            <label class="check-item" data-value="TikTok"><input type="checkbox" /><div class="check-box">✓</div> TikTok</label>
-            <label class="check-item" data-value="YouTube"><input type="checkbox" /><div class="check-box">✓</div> YouTube</label>
-            <label class="check-item" data-value="Google Business Profile"><input type="checkbox" /><div class="check-box">✓</div> Google Business</label>
-            <label class="check-item" data-value="Email Marketing"><input type="checkbox" /><div class="check-box">✓</div> Email Marketing</label>
-            <label class="check-item" data-value="None yet"><input type="checkbox" /><div class="check-box">✓</div> None yet</label>
+            <div class="check-item" data-value="Facebook"><div class="check-box">✓</div> Facebook</div>
+            <div class="check-item" data-value="Instagram"><div class="check-box">✓</div> Instagram</div>
+            <div class="check-item" data-value="LinkedIn"><div class="check-box">✓</div> LinkedIn</div>
+            <div class="check-item" data-value="TikTok"><div class="check-box">✓</div> TikTok</div>
+            <div class="check-item" data-value="YouTube"><div class="check-box">✓</div> YouTube</div>
+            <div class="check-item" data-value="Google Business Profile"><div class="check-box">✓</div> Google Business</div>
+            <div class="check-item" data-value="Email Marketing"><div class="check-box">✓</div> Email Marketing</div>
+            <div class="check-item" data-value="None yet"><div class="check-box">✓</div> None yet</div>
           </div>
         </div>
 
         <div class="field">
           <label>What has worked well so far?</label>
-          <textarea id="whatWorked" placeholder="Even small wins count. What has gotten results?"></textarea>
+          <textarea id="whatWorked" placeholder="Even small wins count."></textarea>
         </div>
 
         <div class="field">
@@ -514,131 +520,10 @@
         </div>
       </div>
 
-      <!-- STEP 4: Target Audience -->
-      <div class="step" data-step="4" data-label="Target Audience">
-        <div class="step-title">Who are you trying to reach?</div>
-        <div class="step-desc">Understanding your customer is the foundation of everything we do.</div>
-
-        <div class="field" id="field-idealCustomer">
-          <label>Who is your ideal customer? <span class="req">*</span></label>
-          <textarea id="idealCustomer" placeholder="Age, gender, income, lifestyle, values — paint a picture."></textarea>
-          <div class="err-msg">Required.</div>
-        </div>
-
-        <div class="field">
-          <label>What geographic areas do you serve?</label>
-          <input type="text" id="geoAreas" placeholder="e.g. Springfield MO, nationwide, local only..." />
-        </div>
-
-        <div class="field">
-          <label>What problems do your customers typically have before they contact you?</label>
-          <textarea id="customerProblems" placeholder="What pain point or need brings them to you?"></textarea>
-        </div>
-
-        <div class="field">
-          <label>Why do customers choose you over competitors?</label>
-          <textarea id="whyChooseYou" placeholder="What makes you the right choice?"></textarea>
-        </div>
-      </div>
-
-      <!-- STEP 5: Website & Online Presence -->
-      <div class="step" data-step="5" data-label="Website & Online Presence">
-        <div class="step-title">How does your online presence look?</div>
-        <div class="step-desc">Your website and online footprint are often the first impression you make.</div>
-
-        <div class="field">
-          <label>Do you currently have a website?</label>
-          <div class="radio-group inline" data-field="hasWebsite">
-            <label class="radio-item" data-value="Yes"><input type="radio" name="hasWebsite" /><div class="radio-dot"></div> Yes</label>
-            <label class="radio-item" data-value="No"><input type="radio" name="hasWebsite" /><div class="radio-dot"></div> No</label>
-            <label class="radio-item" data-value="In progress"><input type="radio" name="hasWebsite" /><div class="radio-dot"></div> In Progress</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Are you happy with your website's performance?</label>
-          <div class="radio-group inline" data-field="happyWithSite">
-            <label class="radio-item" data-value="Yes"><input type="radio" name="happyWithSite" /><div class="radio-dot"></div> Yes</label>
-            <label class="radio-item" data-value="No"><input type="radio" name="happyWithSite" /><div class="radio-dot"></div> No</label>
-            <label class="radio-item" data-value="Not sure"><input type="radio" name="happyWithSite" /><div class="radio-dot"></div> Not Sure</label>
-            <label class="radio-item" data-value="No website"><input type="radio" name="happyWithSite" /><div class="radio-dot"></div> No Website</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Do you know how many leads your website generates per month?</label>
-          <input type="text" id="monthlyLeadsFromSite" placeholder="e.g. Around 10, none, I have no idea..." />
-        </div>
-
-        <div class="field">
-          <label>Do you have access to (select all that apply)</label>
-          <div class="check-group" id="accessGroup">
-            <label class="check-item" data-value="Website admin"><input type="checkbox" /><div class="check-box">✓</div> Website Admin</label>
-            <label class="check-item" data-value="Domain registrar"><input type="checkbox" /><div class="check-box">✓</div> Domain Registrar</label>
-            <label class="check-item" data-value="Google Analytics"><input type="checkbox" /><div class="check-box">✓</div> Google Analytics</label>
-            <label class="check-item" data-value="Google Search Console"><input type="checkbox" /><div class="check-box">✓</div> Search Console</label>
-            <label class="check-item" data-value="Google Business Profile"><input type="checkbox" /><div class="check-box">✓</div> Google Business</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 6: Lead Generation & Sales -->
-      <div class="step" data-step="6" data-label="Lead Generation & Sales">
-        <div class="step-title">How does your pipeline work?</div>
-        <div class="step-desc">We need to understand where your customers come from and what happens after they find you.</div>
-
-        <div class="field">
-          <label>How do most customers currently find you?</label>
-          <textarea id="howCustomersFind" placeholder="Referrals, social media, Google, walk-in, events..."></textarea>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label>Approximate leads per month</label>
-            <input type="text" id="leadsPerMonth" placeholder="e.g. 10-20, not sure..." />
-          </div>
-          <div class="field">
-            <label>Average customer value</label>
-            <input type="text" id="avgCustomerValue" placeholder="e.g. $500, $2,000..." />
-          </div>
-        </div>
-
-        <div class="field">
-          <label>What is your sales process after a lead comes in?</label>
-          <textarea id="salesProcess" placeholder="Walk us through what happens from first contact to close."></textarea>
-        </div>
-
-        <div class="field">
-          <label>What percentage of leads become customers?</label>
-          <input type="text" id="closeRate" placeholder="e.g. About 30%, most of them, very few..." />
-        </div>
-      </div>
-
-      <!-- STEP 7: Competition -->
-      <div class="step" data-step="7" data-label="Competition">
-        <div class="step-title">Who are you up against?</div>
-        <div class="step-desc">Knowing your competitive landscape helps us position you where it matters most.</div>
-
-        <div class="field">
-          <label>Who are your top competitors?</label>
-          <textarea id="competitors" placeholder="Name them specifically if you can."></textarea>
-        </div>
-
-        <div class="field">
-          <label>What do they do better than you?</label>
-          <textarea id="theyDoBetter" placeholder="Be honest here. This is where we find opportunity."></textarea>
-        </div>
-
-        <div class="field">
-          <label>What do you do better than them?</label>
-          <textarea id="youDoBetter" placeholder="What's your real edge?"></textarea>
-        </div>
-      </div>
-
-      <!-- STEP 8: Budget & Resources -->
-      <div class="step" data-step="8" data-label="Budget & Resources">
+      <!-- STEP 4: Budget & Resources -->
+      <div class="step" data-step="4" data-label="Budget & Resources">
         <div class="step-title">Let's talk investment.</div>
-        <div class="step-desc">There are no wrong answers here. This helps us recommend the right approach for where you are right now.</div>
+        <div class="step-desc">There are no wrong answers. This helps us recommend the right approach for where you are right now.</div>
 
         <div class="field">
           <label>Have you worked with a marketing company before?</label>
@@ -674,33 +559,10 @@
         </div>
       </div>
 
-      <!-- STEP 9: Biggest Challenges -->
-      <div class="step" data-step="9" data-label="Biggest Challenges">
-        <div class="step-title">What's really holding you back?</div>
-        <div class="step-desc">This is where we get to the root of the problem. Be as candid as you can.</div>
-
-        <div class="field" id="field-biggestBizChallenge">
-          <label>What is your biggest business challenge right now? <span class="req">*</span></label>
-          <textarea id="biggestBizChallenge" placeholder="Not just marketing. What keeps you up at night about the business overall?"></textarea>
-          <div class="err-msg">Required.</div>
-        </div>
-
-        <div class="field" id="field-biggestMktChallenge">
-          <label>What is your biggest marketing challenge right now? <span class="req">*</span></label>
-          <textarea id="biggestMktChallenge" placeholder="What specifically about your marketing isn't working?"></textarea>
-          <div class="err-msg">Required.</div>
-        </div>
-
-        <div class="field">
-          <label>If we could solve one problem immediately, what would it be?</label>
-          <textarea id="oneProblem" placeholder="If you could wave a wand and fix one thing today, what is it?"></textarea>
-        </div>
-      </div>
-
-      <!-- STEP 10: The Gold Mine Questions -->
-      <div class="step" data-step="10" data-label="A Few More Questions">
+      <!-- STEP 5: The Gold Mine Questions -->
+      <div class="step" data-step="5" data-label="A Few Final Questions">
         <div class="step-title">Almost there. These matter most.</div>
-        <div class="step-desc">These questions help us understand what's really driving you. Take your time with them.</div>
+        <div class="step-desc">These questions help us understand what's really driving you. Take your time.</div>
 
         <div class="file-note">
           <p>After submitting, please email any <strong>logos, marketing materials, or documents</strong> you'd like us to review to <strong>favoredmarketingconsultants@gmail.com</strong> with your business name in the subject line.</p>
@@ -751,7 +613,6 @@
         </div>
       </div>
 
-      <!-- Nav -->
       <div class="nav-wrap">
         <button type="button" class="btn-back" id="btnBack" style="visibility:hidden;">Back</button>
         <button type="button" class="btn-next" id="btnNext">Next</button>
@@ -768,20 +629,15 @@
 </div>
 
 <script>
-  const TOTAL_STEPS = 10;
+  const TOTAL_STEPS = 5;
   let currentStep = 1;
 
   const stepLabels = {
-    1: "Business Information",
-    2: "Business Goals",
-    3: "Current Marketing",
-    4: "Target Audience",
-    5: "Website & Online Presence",
-    6: "Lead Generation & Sales",
-    7: "Competition",
-    8: "Budget & Resources",
-    9: "Biggest Challenges",
-    10: "A Few More Questions"
+    1: "Choose Your Package",
+    2: "Business Information",
+    3: "Goals & Current Marketing",
+    4: "Budget & Resources",
+    5: "A Few Final Questions"
   };
 
   function showStep(n) {
@@ -795,6 +651,16 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // Package selection
+  document.querySelectorAll('.pkg').forEach(pkg => {
+    pkg.addEventListener('click', () => {
+      document.querySelectorAll('.pkg').forEach(p => p.classList.remove('selected'));
+      pkg.classList.add('selected');
+      document.getElementById('packageChoice').value = pkg.dataset.value;
+      document.getElementById('pkgError').classList.remove('visible');
+    });
+  });
+
   // Radio groups
   document.querySelectorAll('.radio-group').forEach(group => {
     group.querySelectorAll('.radio-item').forEach(item => {
@@ -806,12 +672,10 @@
     });
   });
 
-  // Checkboxes
+  // Checkboxes - using div elements so no label conflict
   document.querySelectorAll('.check-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
+    item.addEventListener('click', () => {
       item.classList.toggle('selected');
-      item.querySelector('input').checked = item.classList.contains('selected');
     });
   });
 
@@ -838,6 +702,12 @@
   function validateStep(n) {
     let valid = true;
     if (n === 1) {
+      if (!document.getElementById('packageChoice').value) {
+        document.getElementById('pkgError').classList.add('visible');
+        valid = false;
+      }
+    }
+    if (n === 2) {
       ['businessName', 'contactName', 'industry'].forEach(id => {
         const empty = !document.getElementById(id).value.trim();
         setError(id, empty);
@@ -848,20 +718,8 @@
       setError('email', emailBad);
       if (emailBad) valid = false;
     }
-    if (n === 2) {
+    if (n === 3) {
       ['primaryGoal', 'successLooksLike'].forEach(id => {
-        const empty = !document.getElementById(id).value.trim();
-        setError(id, empty);
-        if (empty) valid = false;
-      });
-    }
-    if (n === 4) {
-      const empty = !document.getElementById('idealCustomer').value.trim();
-      setError('idealCustomer', empty);
-      if (empty) valid = false;
-    }
-    if (n === 9) {
-      ['biggestBizChallenge', 'biggestMktChallenge'].forEach(id => {
         const empty = !document.getElementById(id).value.trim();
         setError(id, empty);
         if (empty) valid = false;
@@ -871,10 +729,7 @@
   }
 
   document.getElementById('btnBack').addEventListener('click', () => {
-    if (currentStep > 1) {
-      currentStep--;
-      showStep(currentStep);
-    }
+    if (currentStep > 1) { currentStep--; showStep(currentStep); }
   });
 
   document.getElementById('btnNext').addEventListener('click', async () => {
@@ -882,26 +737,21 @@
       document.querySelector('.has-error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
+    if (currentStep < TOTAL_STEPS) { currentStep++; showStep(currentStep); return; }
 
-    if (currentStep < TOTAL_STEPS) {
-      currentStep++;
-      showStep(currentStep);
-      return;
-    }
-
-    // Submit
     const btn = document.getElementById('btnNext');
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
     const payload = {
+      packageChoice: document.getElementById('packageChoice').value,
       businessName: document.getElementById('businessName').value.trim(),
       contactName: document.getElementById('contactName').value.trim(),
       email: document.getElementById('email').value.trim(),
       phone: document.getElementById('phone').value.trim(),
-      websiteUrl: document.getElementById('websiteUrl').value.trim(),
       industry: document.getElementById('industry').value.trim(),
       yearsInBusiness: document.getElementById('yearsInBusiness').value.trim(),
+      websiteUrl: document.getElementById('websiteUrl').value.trim(),
       numEmployees: document.getElementById('numEmployees').value.trim(),
       primaryGoal: document.getElementById('primaryGoal').value.trim(),
       successLooksLike: document.getElementById('successLooksLike').value.trim(),
@@ -910,29 +760,10 @@
       platforms: getChecked('platformGroup'),
       whatWorked: document.getElementById('whatWorked').value.trim(),
       whatDidntWork: document.getElementById('whatDidntWork').value.trim(),
-      idealCustomer: document.getElementById('idealCustomer').value.trim(),
-      geoAreas: document.getElementById('geoAreas').value.trim(),
-      customerProblems: document.getElementById('customerProblems').value.trim(),
-      whyChooseYou: document.getElementById('whyChooseYou').value.trim(),
-      hasWebsite: getRadio('hasWebsite'),
-      happyWithSite: getRadio('happyWithSite'),
-      monthlyLeadsFromSite: document.getElementById('monthlyLeadsFromSite').value.trim(),
-      accessTo: getChecked('accessGroup'),
-      howCustomersFind: document.getElementById('howCustomersFind').value.trim(),
-      leadsPerMonth: document.getElementById('leadsPerMonth').value.trim(),
-      avgCustomerValue: document.getElementById('avgCustomerValue').value.trim(),
-      salesProcess: document.getElementById('salesProcess').value.trim(),
-      closeRate: document.getElementById('closeRate').value.trim(),
-      competitors: document.getElementById('competitors').value.trim(),
-      theyDoBetter: document.getElementById('theyDoBetter').value.trim(),
-      youDoBetter: document.getElementById('youDoBetter').value.trim(),
       workedWithAgency: getRadio('workedWithAgency'),
       agencyExperience: document.getElementById('agencyExperience').value.trim(),
       budget: getRadio('budget'),
       internalHelp: getRadio('internalHelp'),
-      biggestBizChallenge: document.getElementById('biggestBizChallenge').value.trim(),
-      biggestMktChallenge: document.getElementById('biggestMktChallenge').value.trim(),
-      oneProblem: document.getElementById('oneProblem').value.trim(),
       keepAwake: document.getElementById('keepAwake').value.trim(),
       handleMoreLeads: getRadio('handleMoreLeads'),
       revenueGoal: document.getElementById('revenueGoal').value.trim(),
@@ -949,7 +780,6 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-
       if (res.ok) {
         document.getElementById('formWrap').style.display = 'none';
         document.querySelector('.header').style.display = 'none';
@@ -957,9 +787,7 @@
         success.style.display = 'block';
         success.classList.add('visible');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        throw new Error('failed');
-      }
+      } else { throw new Error('failed'); }
     } catch {
       btn.disabled = false;
       btn.textContent = 'Submit';

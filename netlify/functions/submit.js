@@ -35,6 +35,9 @@ exports.handler = async (event) => {
         <div style="color:#888;font-size:12px;margin-top:6px;">${data.businessName || ''} &bull; ${data.contactName || ''}</div>
       </div>
       <table style="width:100%;border-collapse:collapse;">
+        ${sectionHeader('Package Selected')}
+        ${row('Package', data.packageChoice)}
+
         ${sectionHeader('Business Information')}
         ${row('Business Name', data.businessName)}
         ${row('Contact Name', data.contactName)}
@@ -45,51 +48,20 @@ exports.handler = async (event) => {
         ${row('Years in Business', data.yearsInBusiness)}
         ${row('Number of Employees', data.numEmployees)}
 
-        ${sectionHeader('Business Goals')}
+        ${sectionHeader('Goals & Current Marketing')}
         ${row('Primary Goal (12 months)', data.primaryGoal)}
         ${row('What success looks like', data.successLooksLike)}
         ${row('Trying to increase', data.increaseGoals)}
-
-        ${sectionHeader('Current Marketing Efforts')}
         ${row('Current marketing activity', data.currentMarketing)}
         ${row('Active platforms', data.platforms)}
         ${row('What has worked', data.whatWorked)}
         ${row("What hasn't worked", data.whatDidntWork)}
-
-        ${sectionHeader('Target Audience')}
-        ${row('Ideal customer', data.idealCustomer)}
-        ${row('Geographic areas', data.geoAreas)}
-        ${row('Customer problems before contact', data.customerProblems)}
-        ${row('Why customers choose them', data.whyChooseYou)}
-
-        ${sectionHeader('Website & Online Presence')}
-        ${row('Has a website', data.hasWebsite)}
-        ${row('Happy with site performance', data.happyWithSite)}
-        ${row('Monthly leads from website', data.monthlyLeadsFromSite)}
-        ${row('Has access to', data.accessTo)}
-
-        ${sectionHeader('Lead Generation & Sales')}
-        ${row('How customers find them', data.howCustomersFind)}
-        ${row('Leads per month', data.leadsPerMonth)}
-        ${row('Average customer value', data.avgCustomerValue)}
-        ${row('Sales process', data.salesProcess)}
-        ${row('Lead to customer close rate', data.closeRate)}
-
-        ${sectionHeader('Competition')}
-        ${row('Top competitors', data.competitors)}
-        ${row('What competitors do better', data.theyDoBetter)}
-        ${row('What they do better', data.youDoBetter)}
 
         ${sectionHeader('Budget & Resources')}
         ${row('Worked with agency before', data.workedWithAgency)}
         ${row('Previous agency experience', data.agencyExperience)}
         ${row('Monthly budget', data.budget)}
         ${row('Internal content help', data.internalHelp)}
-
-        ${sectionHeader('Biggest Challenges')}
-        ${row('Biggest business challenge', data.biggestBizChallenge)}
-        ${row('Biggest marketing challenge', data.biggestMktChallenge)}
-        ${row('One problem to solve immediately', data.oneProblem)}
 
         ${sectionHeader('Gold Mine Questions')}
         ${row('What keeps them awake at night', data.keepAwake)}
